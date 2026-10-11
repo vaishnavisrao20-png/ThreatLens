@@ -1,3 +1,0 @@
-flask>=3.0
-# optional – enables the LLM-powered copilot when ANTHROPIC_API_KEY is set
-anthropic
