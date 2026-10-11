@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ThreatLens – Risk-Based Incident Prioritization</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Inter:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+<svg width="0" height="0" style="position:absolute"><symbol id="logo" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs>
+<path d="M32 3l25 14v30L32 61 7 47V17z" fill="#0a1226" stroke="url(#g)" stroke-width="3"/><circle cx="31" cy="31" r="13" fill="none" stroke="url(#g)" stroke-width="3.5"/>
+<path d="M41 41l10 10" stroke="#22d3ee" stroke-width="4" stroke-linecap="round"/><path d="M31 14v6M31 42v6M14 31h6M42 31h6" stroke="#8b5cf6" stroke-width="2"/>
+<circle cx="31" cy="31" r="4" fill="#ff3b4e"><animate attributeName="r" values="3;6;3" dur="1.6s" repeatCount="indefinite"/></circle></symbol></svg>
+
+<div id="boot"><svg class="lg big"><use href="#logo"/></svg><h1 class="bt">ThreatLens</h1><pre id="bl"></pre><div class="pbar"><u id="pb"></u></div><button class="btn" id="enter" hidden>ENTER SOC ▶</button></div>
+<canvas id="bg"></canvas><div id="glow"></div><div id="prog"></div>
+<nav><a href="#top" class="brand"><svg class="lg"><use href="#logo"/></svg><span>ThreatLens</span></a><div><a href="#console">Console</a><a href="#mapsec">Attack Map</a></div></nav>
+
+<header id="top" class="hero"><div class="wrap"><span class="chip">SECURITY OPERATIONS · LIVE</span>
+<h1>Hundreds of alerts. <span id="ty"></span><i>|</i></h1>
+<p class="lead">Not every alert deserves immediate investigation. ThreatLens combines <b>severity, affected assets and business impact</b> into one explainable risk score, so your team investigates the right incident first.</p></div></header>
+
+<section id="console"><div class="wrap"><h2>Live Risk Console</h2>
+<p class="sub" id="off" hidden style="color:#ff3b4e">Backend not reachable – run <b>python app.py</b> and open http://127.0.0.1:5000</p>
+<div class="stats"><div><b id="sA">0</b>Alerts received</div><div><b id="sI">0</b>Incidents (grouped)</div><div class="red"><b id="sC">0</b>Open critical</div><div class="grn"><b id="sN">0%</b>Noise reduced</div></div>
+<div class="bar"><button class="btn" id="demo">📂 Load mixed alert set</button><button class="btn" id="top1">🔎 Investigate top incident</button><button class="btn" id="sim">⚡ Simulate critical attack</button><button class="btn" id="storm">💥 Alert storm (200)</button></div><div class="bar"><button class="btn ghost" id="feed">📡 Live feed: OFF</button><button class="btn ghost" id="mute">🔊 Sound on</button><button class="btn ghost" id="notif">🔔 Desktop alerts</button></div>
+<div class="bar" id="fl"><button class="chp on">All</button><button class="chp">Critical</button><button class="chp">High</button><button class="chp">Medium</button><button class="chp">Low</button></div>
+<div class="cls" id="cl"></div><div class="rc" id="rc"></div><div class="console"><div class="tw"><table><thead><tr><th>Priority</th><th>Incident / Asset</th><th>Alerts</th><th>Risk score</th><th>Status</th></tr></thead><tbody id="tb"></tbody></table></div>
+<aside id="ai"><h3>🧠 Explainable AI</h3><p>Select an incident to see why it got its priority and what to do next.</p></aside></div></div></section>
+
+<section id="mapsec"><div class="wrap"><h2>Attack Origin Map</h2><p class="sub">Live (simulated) traffic origins converging on your SOC in Bengaluru. Arc colour = incident priority.</p>
+<div class="mapbox"><svg id="map" viewBox="0 0 720 300"></svg></div></div></section>
+<footer><svg class="lg"><use href="#logo"/></svg> ThreatLens · Prioritise what matters</footer>
+
+<button id="cbtn">🤖</button>
+<div id="chat"><div class="ch">🤖 ThreatLens Copilot <button id="cx">✕</button></div><div id="cm"></div>
+<div class="qs"><button>What should I investigate first?</button><button>Show attack clusters</button><button>How much noise did you cut?</button><button>How is risk scored?</button></div>
+<div class="ci"><input id="cin" placeholder="Ask about your incidents…"><button id="cs">➤</button></div></div>
+
+<div id="alarm"><div class="box"><div class="siren">🚨</div><h2>HIGH ALERT</h2><p id="am"></p><button class="btn" id="ack">Acknowledge &amp; Investigate</button></div></div>
+<script src="script.js"></script></body></html>
